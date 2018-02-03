@@ -8,34 +8,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException, WordSetDesyncException {
 
-        Tokenizer tokenizer = new Tokenizer();
-        SortedSet<String> wordSet = new TreeSet<>();
+        VsmIndex vsmIndex = new VsmIndex("testdir");
 
-        for (File f: new File("texts").listFiles()) {
-            String text = tokenizer.getText(f, "UTF-8");
-            tokenizer.getWordSet(text, wordSet);
+        for (TextData td : vsmIndex) {
+
+            System.out.print(td.getName()+": ");
+
+            for (Integer i : td.getTfVector()) {
+                System.out.print(i+" ");
+            }
+            System.out.println();
         }
-
-
-        List<String> wordList = new ArrayList<>(wordSet);
-
-//        for (String s :
-//                wordList) {
-//            System.out.println(s);
-//        }
-
-        List<TextData> index = new ArrayList<>();
-
-        List<Integer> tfVector = new IndexUtil().getTfVector(wordList,Tokenizer.getText(new File("texts/Hamlett.txt"), "UTF-8"));
-
-//        for (Integer i: tfVector) {
-//            System.out.print(i + " ");
-//        }
-
-        List<Integer> idfVector = new IndexUtil().getIdfVector();
-
-
-
 
 
     }

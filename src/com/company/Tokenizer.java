@@ -9,7 +9,7 @@ public class Tokenizer {
     /**
      * Speichert den Inhalt eines Files in einen String
      *
-     * @param file     Das in den String zu schreibende File.
+     * @param url     Die url des in den String zu schreibenden Files.
      * @param encoding Das Encoding für den Text. Wird vom InputStreamReader benötigt.
      * @return Den Inhalt des Textes als String.
      * @throws UnsupportedEncodingException Wenn das Encoding nicht unterstützt wird
@@ -17,9 +17,10 @@ public class Tokenizer {
      * @throws IOException                  Bei jeglicher Form von Fehlern beim schreiben
      */
 
-    public static String getText(File file, String encoding)
+    public static String getText(String url, String encoding)
             throws UnsupportedEncodingException, FileNotFoundException,
             IOException {
+        File file = new File(url);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), encoding));
         StringBuffer stringBuffer = new StringBuffer();

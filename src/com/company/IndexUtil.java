@@ -14,6 +14,7 @@ public class IndexUtil {
 
     public List<Integer> getTfVector(List<String> wordList, String text) throws WordSetDesyncException {
 
+
         Tokenizer tokenizer = new Tokenizer();
         //tfvektor Liste initialisieren
         List<Integer> tfVector = new ArrayList<>();
