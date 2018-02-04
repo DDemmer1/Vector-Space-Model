@@ -7,12 +7,15 @@ import java.util.*;
 
 public class VsmIndex extends ArrayList<TextData> {
 
-    private SortedSet<String> dictionary;
+//    private SortedSet<String> dictionary;
+    private List<String> dictionary;
+
+    private List<Double> generalIDF;
 
     public VsmIndex (String textDir){
         File dir = new File(textDir);
         List<String> fileURLs = new ArrayList<>();
-        dictionary = new TreeSet<>();
+//        dictionary = new TreeSet<>();
 
         for (File f: dir.listFiles()) {
             fileURLs.add(f.getPath());
@@ -38,7 +41,7 @@ public class VsmIndex extends ArrayList<TextData> {
         Tokenizer tokenizer = new Tokenizer();
 
         //Dictionary aufbauen
-        List<String> dictionary = getDictionary(fileURLs);
+        List<String> dictionary = initDictionary(fileURLs);
 
         //Term Frequenz Vektoren bestimmen und TextData initialieren
         for (String url : fileURLs) {
@@ -56,8 +59,15 @@ public class VsmIndex extends ArrayList<TextData> {
         }
 
         List<List<Integer>> tfVectorList = new ArrayList<>();
+
         for (TextData td : this) {
             tfVectorList.add(td.getTfVector());
+        }
+
+        generalIDF = indexUtil.getIdfVector(tfVectorList);
+
+        for (TextData td: this) {
+            td.setVector(generalIDF);
         }
 
 
@@ -67,7 +77,12 @@ public class VsmIndex extends ArrayList<TextData> {
 
     }
 
-    private List<String> getDictionary(List<String> urls) {
+
+    public List<Double> getGeneralIDF() {
+        return generalIDF;
+    }
+
+    private List<String> initDictionary(List<String> urls) {
 
         System.out.println("Building dictionary from " + urls.size()+ " files");
 
@@ -86,12 +101,15 @@ public class VsmIndex extends ArrayList<TextData> {
             }
         }
 
-        List<String>  dictionary = new ArrayList<>(wordSet);
+//        List<String>  dictionary = new ArrayList<>(wordSet);
+        dictionary = new ArrayList<>(wordSet);
 
         System.out.println("Dictionary complete. Size: " + dictionary.size());
 
         return dictionary;
     }
 
-
+    public List<String> getDictionary() {
+        return dictionary;
+    }
 }
