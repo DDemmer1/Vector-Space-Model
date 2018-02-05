@@ -1,0 +1,6 @@
+#configuguration yaml file for the VsmIndex
+
+---
+
+serialize: false
+deserialize: true
