@@ -32,7 +32,7 @@ public class IndexUtil {
             if (wordList.contains(current)) {
                 tfVector.set(j, tfVector.get(j) + 1);
             } else {
-                throw new WordSetDesyncException("Das woerterbuch ist nicht mit den aktuellen Texten synchron!");
+//                throw new WordSetDesyncException("Das woerterbuch ist nicht mit den aktuellen Texten synchron!");
             }
         }
 

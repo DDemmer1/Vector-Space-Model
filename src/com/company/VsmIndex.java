@@ -3,9 +3,10 @@ package com.company;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
-public class VsmIndex extends ArrayList<TextData> {
+public class VsmIndex extends ArrayList<TextData> implements Serializable {
 
 //    private SortedSet<String> dictionary;
     private List<String> dictionary;

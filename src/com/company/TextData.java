@@ -1,10 +1,11 @@
 package com.company;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TextData{
+public class TextData implements Serializable{
 
     private String text;
     private String name;
