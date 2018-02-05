@@ -1,16 +1,31 @@
-package com.company;
+package de.demmer.dennis;
 
-import jdk.nashorn.internal.ir.debug.JSONWriter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import de.demmer.dennis.query.Query;
+import de.demmer.dennis.searchengine.SearchEngine;
+import de.demmer.dennis.vsmindex.TextData;
+import de.demmer.dennis.vsmindex.VsmConfiguration;
+import de.demmer.dennis.vsmindex.VsmIndex;
 
 import java.io.*;
 import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, WordSetDesyncException {
+    public static void main(String[] args) throws IOException{
 
 
+//        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+//        try {
+//            VsmConfiguration configuration = mapper.readValue(new File("conf/index_conf.yaml"), VsmConfiguration.class);
+////            System.out.println(ReflectionToStringBuilder.toString(configuration, ToStringStyle.MULTI_LINE_STYLE));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
+
+//        System.out.println();
 
 
 //        VsmIndex vsmIndex = new VsmIndex("texts");

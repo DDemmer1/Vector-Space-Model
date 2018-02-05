@@ -1,6 +1,9 @@
-package com.company;
+package de.demmer.dennis.searchengine;
 
-import java.util.ArrayList;
+import de.demmer.dennis.vsmindex.TextData;
+import de.demmer.dennis.vsmindex.VsmIndex;
+import de.demmer.dennis.query.Query;
+
 import java.util.Collections;
 import java.util.List;
 

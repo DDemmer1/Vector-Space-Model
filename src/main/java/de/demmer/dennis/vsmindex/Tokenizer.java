@@ -1,4 +1,4 @@
-package com.company;
+package de.demmer.dennis.vsmindex;
 
 import java.io.*;
 import java.text.BreakIterator;

@@ -1,4 +1,4 @@
-package com.company;
+package de.demmer.dennis.vsmindex;
 
 
 import java.io.*;
@@ -6,9 +6,7 @@ import java.util.*;
 
 public class VsmIndex extends ArrayList<TextData> implements Serializable {
 
-//    private SortedSet<String> dictionary;
     private List<String> dictionary;
-
     private List<Double> generalIDF;
 
 
@@ -17,7 +15,6 @@ public class VsmIndex extends ArrayList<TextData> implements Serializable {
     public VsmIndex (String textDir){
         File dir = new File(textDir);
         List<String> fileURLs = new ArrayList<>();
-//        dictionary = new TreeSet<>();
 
         for (File f: dir.listFiles()) {
             fileURLs.add(f.getPath());
@@ -29,14 +26,22 @@ public class VsmIndex extends ArrayList<TextData> implements Serializable {
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (WordSetDesyncException e) {
-            e.printStackTrace();
         }
 
 
     }
 
-    private void initIndex(List<String> fileURLs) throws IOException, WordSetDesyncException {
+
+    public List<Double> getGeneralIDF() {
+        return generalIDF;
+    }
+
+    public List<String> getDictionary() {
+        return dictionary;
+    }
+
+
+    private void initIndex(List<String> fileURLs) throws IOException {
 
         System.out.println("Building VSM Index");
         IndexUtil indexUtil = new IndexUtil();
@@ -79,11 +84,6 @@ public class VsmIndex extends ArrayList<TextData> implements Serializable {
 
     }
 
-
-    public List<Double> getGeneralIDF() {
-        return generalIDF;
-    }
-
     private List<String> initDictionary(List<String> urls) {
 
         System.out.println("Building dictionary from " + urls.size()+ " files");
@@ -110,11 +110,5 @@ public class VsmIndex extends ArrayList<TextData> implements Serializable {
 
         return dictionary;
     }
-
-    public List<String> getDictionary() {
-        return dictionary;
-    }
-
-
 
 }

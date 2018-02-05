@@ -1,4 +1,4 @@
-package com.company;
+package de.demmer.dennis.vsmindex;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.List;
 public class IndexUtil {
 
 
-    public List<Integer> getTfVector(List<String> wordList, String text) throws WordSetDesyncException {
+    public List<Integer> getTfVector(List<String> wordList, String text){
 
 
         Tokenizer tokenizer = new Tokenizer();
@@ -32,7 +32,8 @@ public class IndexUtil {
             if (wordList.contains(current)) {
                 tfVector.set(j, tfVector.get(j) + 1);
             } else {
-//                throw new WordSetDesyncException("Das woerterbuch ist nicht mit den aktuellen Texten synchron!");
+
+
             }
         }
 

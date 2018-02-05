@@ -1,7 +1,10 @@
-package com.company;
+package de.demmer.dennis.query;
+
+import de.demmer.dennis.vsmindex.TextData;
+import de.demmer.dennis.vsmindex.VsmIndex;
+import de.demmer.dennis.vsmindex.IndexUtil;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Dennis on 04.02.2018.
@@ -32,16 +35,8 @@ public class Query {
     }
 
     public void initVector(VsmIndex vsmIndex) {
-        try {
             textData.setTfVector(new IndexUtil().getTfVector(new ArrayList<>(vsmIndex.getDictionary()),term));
-
             textData.setQueryVector(vsmIndex.getGeneralIDF());
-
-
-        } catch (WordSetDesyncException e) {
-            e.printStackTrace();
-        }
-
     }
 
 

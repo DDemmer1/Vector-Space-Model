@@ -1,4 +1,6 @@
-package com.company;
+package de.demmer.dennis.searchengine;
+
+import de.demmer.dennis.vsmindex.TextData;
 
 import java.util.Comparator;
 
