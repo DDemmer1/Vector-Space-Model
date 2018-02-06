@@ -2,7 +2,7 @@ package de.demmer.dennis.searchengine;
 
 import de.demmer.dennis.vsmindex.TextData;
 import de.demmer.dennis.vsmindex.VsmIndex;
-import de.demmer.dennis.query.Query;
+import de.demmer.dennis.vsmindex.Query;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,15 +14,15 @@ public class SearchEngine {
 
     private VsmIndex vsmIndex;
 
-    public SearchEngine(VsmIndex vsmIndex) {
-        this.vsmIndex = vsmIndex;
+    public SearchEngine() {
+        this.vsmIndex = VsmIndex.getInstance();
     }
 
 
 
     public List<TextData> search(Query query) {
 
-        query.initVector(vsmIndex);
+        query.initVector();
 
         calculateSimilarity(query,vsmIndex);
 

@@ -7,7 +7,7 @@ import java.util.List;
 public class IndexUtil {
 
 
-    public List<Integer> getTfVector(List<String> wordList, String text){
+    protected List<Integer> getTfVector(List<String> wordList, String text){
 
 
         Tokenizer tokenizer = new Tokenizer();
@@ -42,7 +42,7 @@ public class IndexUtil {
     }
 
 
-    public List<Double> getIdfVector(List<List<Integer>> tfVectorList) {
+    protected List<Double> getIdfVector(List<List<Integer>> tfVectorList) {
 
         List<Double> idfVector = new ArrayList<>();
 
@@ -60,9 +60,6 @@ public class IndexUtil {
 
                 sum += currentInt;
 
-
-
-
             }
 
             //idf Berechnung
@@ -74,4 +71,10 @@ public class IndexUtil {
 
         return idfVector;
     }
+
+
+
+
+
+
 }

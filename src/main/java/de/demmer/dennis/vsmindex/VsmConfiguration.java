@@ -1,24 +1,44 @@
 package de.demmer.dennis.vsmindex;
 
-public class VsmConfiguration {
+import java.io.Serializable;
 
-    private boolean serialize;
-    private boolean deserialize;
+public class VsmConfiguration implements Serializable{
+
+    private boolean load;
+    private boolean saveTextToTextData;
+    private String textDir;
+    private String indexPath;
 
 
-    public boolean isSerialize() {
-        return serialize;
+    public String getIndexPath() {
+        return indexPath;
     }
 
-    public void setSerialize(boolean serialize) {
-        this.serialize = serialize;
+    public void setIndexPath(String indexPath) {
+        this.indexPath = indexPath;
     }
 
-    public boolean isDeserialize() {
-        return deserialize;
+    public boolean isSaveTextToTextData() {
+        return saveTextToTextData;
     }
 
-    public void setDeserialize(boolean deserialize) {
-        this.deserialize = deserialize;
+    public void setSaveTextToTextData(boolean saveTextToTextData) {
+        this.saveTextToTextData = saveTextToTextData;
+    }
+
+    public boolean isLoad() {
+        return load;
+    }
+
+    public void setLoad(boolean load) {
+        this.load = load;
+    }
+
+    public String getTextDir() {
+        return textDir;
+    }
+
+    public void setTextDir(String textDir) {
+        this.textDir = textDir;
     }
 }

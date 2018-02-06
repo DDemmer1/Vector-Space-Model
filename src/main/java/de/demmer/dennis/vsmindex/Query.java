@@ -1,4 +1,4 @@
-package de.demmer.dennis.query;
+package de.demmer.dennis.vsmindex;
 
 import de.demmer.dennis.vsmindex.TextData;
 import de.demmer.dennis.vsmindex.VsmIndex;
@@ -34,9 +34,10 @@ public class Query {
 
     }
 
-    public void initVector(VsmIndex vsmIndex) {
-            textData.setTfVector(new IndexUtil().getTfVector(new ArrayList<>(vsmIndex.getDictionary()),term));
-            textData.setQueryVector(vsmIndex.getGeneralIDF());
+    public void initVector() {
+
+        textData.setTfVector(new IndexUtil().getTfVector(new ArrayList<>(VsmIndex.getInstance().getDictionary()),term));
+        textData.setQueryVector(VsmIndex.getInstance().getGeneralIDF());
     }
 
 
